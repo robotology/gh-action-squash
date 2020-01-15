@@ -68,13 +68,11 @@ echo "Base branch for PR #$PR_NUMBER is $BASE_BRANCH"
 USER_TOKEN=${USER_LOGIN}_TOKEN
 COMMITTER_TOKEN=${!USER_TOKEN:-$GITHUB_TOKEN}
 
-X_ACCESS_TOKEN="x-access-token:$COMMITTER_TOKEN@"
-
-git remote set-url origin https://${X_ACCESS_TOKEN}github.com/$BASE_REPO.git
+git remote set-url origin https://x-access-token:$COMMITTER_TOKEN@github.com/$BASE_REPO.git
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
 
-git remote add fork https://${X_ACCESS_TOKEN}github.com/$HEAD_REPO.git
+git remote add fork https://x-access-token:$COMMITTER_TOKEN@github.com/$HEAD_REPO.git
 
 set -o xtrace
 
