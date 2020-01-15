@@ -1,0 +1,11 @@
+name: 'Squash PR'
+description: 'Squash all commits in a PR into the first one.'
+author: 'Daniele E. Domenichelli'
+branding:
+  icon: 'git-branch'
+  color: 'orange'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.myInput }}
